@@ -12,7 +12,7 @@ LABEL maintainer="Jarmo Haaranen <jarmo@uccs.fi>"
 
 # Install packages and enable epel repo
 RUN microdnf install -y epel-release && \
-    microdnf update -y && microdnf clean all && \
+    microdnf update -y && \
     microdnf install -y sshpass \
       git-core \
       ansible-core \
@@ -24,7 +24,8 @@ RUN microdnf install -y epel-release && \
       python3-pip \
       python3-aiohttp \
       golang-bin \
-      curl && \
+      curl \
+      netcat && \
     microdnf clean all
 
 # Create semaphore user
